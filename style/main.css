@@ -144,51 +144,55 @@ header {
 
 /*=========================================================================*/
 /*                           Language buttons                              */
-#navTemp {
-    position:fixed;
-    left:15px;
-    top:15px;
+#langNav {
+    position: fixed;
+    left: 15px;
+    top: 15px;
     z-index: 10;
 }
+
 #langNav li {
-    width:50px;
-    height:50px;
-    margin-right:15px;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
 }
+
 #langNav .active {
     opacity: 1;
 }
-.menu ul li button {
-    height: 90%;
+
+#langNav a {
+    display: flex;
     width: 90%;
+    height: 90%;
     border-radius: 50%;
-    overflow:hidden;
-    border:none;
-    background: var(--background-main);
+    overflow: hidden;
 }
-.menu ul li button img {
+
+#langNav img {
+    opacity: 0.4;
     width:100%;
-    height:100%;
-    opacity:0.4;
 }
-.menu ul li button:hover {
-    height: 100%;
-    width: 100%;
+
+#langNav a:hover {
+    transform: scale(1.1);
 }
-.menu ul li button:hover img {
+
+#langNav a:hover img {
     opacity: 1;
 }
-.menu ul li button:active {
-    height: 80%;
-    width: 80%;
+
+#langNav a:active {
+    transform: scale(0.9);
 }
-.menu ul li button:active img {
-    opacity:.75;
+
+#langNav a:active img {
+    opacity: 0.75;
 }
 
 /*=========================================================================*/
 /*                             Menu buttons                                */
-.menu ul li a{
+.pageNav a{
     color:var(--text-secondary);
     font-size:18px;
     font-weight:thin;
@@ -199,8 +203,8 @@ header {
     border-radius:20px;
 }
 
-.menu ul li a:hover, 
-.menu ul li a.active{
+.pageNav a:hover, 
+.pageNav a.active{
     color: var(--text-main);
     font-size: 20px;
     font-weight: 500;

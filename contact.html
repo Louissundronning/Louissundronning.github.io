@@ -27,25 +27,24 @@
 <body>
     <header>
         <div class="menu">
-            <nav id="navTemp"> <!--- Language nav -->
-                <ul id="langNav">
-                    <li><button class="language-button" data-language="en" id="enButton"><img id="enImg"
-                                class="language-image active" src="/assets/eng-flag.png" alt="english flag"></button>
-                    </li>
-                    <li><button class="language-button" data-language="fr" id="frButton"> <img id="frImg"
-                                class="language-image" src="/assets/french-flag.png" alt="french flag"></button></li>
-                    <li><button class="language-button" data-language="no" id="noButton"><img id="noImg"
-                                class="language-image" src="/assets/nor-flag.png" alt="norwegian flag"></button></li>
+            <nav id="langNav">
+                <ul>
+                    <li><a class="language-link" data-language="en" href="en/about.html"><img id="enImg"
+                                class="language-image" src="/assets/eng-flag.png" alt="english flag"></a></li>
+                    <li><a class="language-link" data-language="fr" href="fr/about.html"> <img id="frImg"
+                                class="language-image" src="/assets/french-flag.png" alt="french flag"></a></li>
+                    <li><a class="language-link" data-language="no" href="no/about.html"><img id="noImg"
+                                class="language-image" src="/assets/nor-flag.png" alt="norwegian flag"></a></li>
                 </ul>
             </nav>
             <a href="index.html" id="logoName">Louis Sundrønning</a>
-            <nav> <!--- Page navigation -->
+            <nav class="pageNav"> <!--- Page navigation -->
                 <ul>
                     <li><a href="work.html" id="navWork">Work</a></li>
                     <li><a href="about.html" id="navAbout">About</a></li>
-                    <li><a href="contact.html" class="active" id="navContact">Contact</a></li>
+                    <li><a href="contact.html" id="navContact">Contact</a></li>
                 </ul>
-            </nav> <!---Toggle light and dark mode-->
+            </nav>
             <div id="switcher">
                 <button id="switchButton">
                     <img src="" alt="sun or moon image">

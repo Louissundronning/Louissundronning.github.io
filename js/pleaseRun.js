@@ -3,6 +3,7 @@ console.log("running")
 const rootElem = document.documentElement
 const storedTheme = localStorage.getItem('theme');
 
+
 /*=========================================================================*/
 /*                             light switch                                */
 /*=========================================================================*/
@@ -38,66 +39,67 @@ document.querySelector('#switcher').addEventListener('mousedown', playAudio)
 document.querySelector('#switcher').addEventListener('click', switchTheme)
 
 /*=========================================================================*/
-/*                            language switch                              */
+/*                            page switch                              */
 /*=========================================================================*/
 
-var languageButtons = document.querySelectorAll('.language-button');
-var languageImages = document.querySelectorAll('.language-image');
-var languageData = {};
+const currentPageName = getCurrentPageName();
+setActiveLink(currentPageName);
+console.log(currentPageName);
 
-// Retrieve the selected language from localStorage, if available
-var selectedLanguage = localStorage.getItem('selectedLanguage');
-
-function editActiveImage(currentLang) {
-  var currentLangImg = document.getElementById(currentLang + "Img");
-
-  languageImages.forEach((img) => {
-    if (img !== currentLangImg) {
-      img.classList.remove("active");
-    } else {
-      img.classList.add("active");
+function setActiveLink(pageName) {
+  const navLinks = document.querySelectorAll('.pageNav a');
+  navLinks.forEach(link => link.classList.remove('active'));
+  console.log('links removed?')
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === pageName) {
+      link.classList.add('active');
+      console.log(pageName + ' has been updated');
     }
   });
 }
 
-function setLanguage(selectedLanguage) {
-  rootElem.setAttribute('lang', selectedLanguage);
-
-  fetch('../JSON/' + selectedLanguage + '.json')
-    .then(response => response.json())
-    .then(data => {
-      languageData = data;
-      updateContent();
-      console.log(selectedLanguage);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+function getCurrentPageName() {
+  const pathname = window.location.pathname;
+  const pathParts = pathname.split('/');
+  let currentPageName = pathParts[pathParts.length - 1];
+  console.log(currentPageName + ' has been identified');
+  return currentPageName;
 }
 
-function updateContent() {
-  for (var key in languageData) {
-    if (languageData.hasOwnProperty(key)) {
-      var value = languageData[key];
-      changeContent(key, value);
+/*=========================================================================*/
+/*                            language switch                              */
+/*=========================================================================*/
+
+const currentLanguage = getCurrentLanguage();
+setActiveLanguage(currentLanguage);
+console.log('currentLanguage')
+
+function setActiveLanguage(language) {
+  const langNavImages = document.querySelectorAll('.language-image');
+  langNavImages.forEach(image => image.classList.remove('active'));
+  console.log('Language images removed');
+  langNavImages.forEach(image => {
+    const dataLanguage = image.parentElement.getAttribute('data-language');
+    if (dataLanguage === language) {
+      image.classList.add('active');
+      console.log(language + ' language image has been updated');
     }
-  }
+  });
 }
 
-function changeContent(key, value) {
-  var element = document.getElementById(key);
-  if (element) {
-    if (element.tagName === "INPUT") {
-      element.placeholder = value;
-      if (element.type === "submit") {
-        element.value = value;
-      }
-    } else {
-      element.textContent = value;
-    }
-    console.log(key + ' updated');
-  }
+function getCurrentLanguage() {
+  const pathname = window.location.pathname;
+  const pathParts = pathname.split('/');
+  let currentLanguage = pathParts[pathParts.length - 2];
+  console.log(currentLanguage + ' language has been identified');
+  return currentLanguage;
 }
+
+
+
+
+/*
 
 // Set the initial language based on the stored value or default to a fallback language
 if (selectedLanguage) {
@@ -118,81 +120,5 @@ languageButtons.forEach(function (button) {
   });
 });
 
-/*
-var languageButtons = document.querySelectorAll('.language-button');
-var languageImages = document.querySelectorAll('.language-image');
-var languageData = {};
-
-function editActiveImage(currentLang) {
-  var currentLangImg = document.getElementById(currentLang + "Img");
-
-  languageImages.forEach((img) => {
-    if (img !== currentLangImg) {
-      img.classList.remove("active");
-    } else {
-      img.classList.add("active");
-    }
-  });
-}
-
-languageButtons.forEach(function (button) {
-  button.addEventListener('click', function () {
-    var selectedLanguage = this.dataset.language;
-    editActiveImage(selectedLanguage);
-    switchLanguage(selectedLanguage);
-  });
-});
-
-function switchLanguage(selectedLanguage) {
-  rootElem.setAttribute('lang', selectedLanguage);
-
-  fetch('../JSON/' + selectedLanguage + '.json')
-    .then(response => response.json())
-    .then(data => {
-      languageData = data;
-      updateContent();
-      console.log(selectedLanguage);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
-
-function updateContent() {
-  for (var key in languageData) {
-    if (languageData.hasOwnProperty(key)) {
-      var value = languageData[key];
-      changeContent(key, value);
-    }
-  }
-}
-
-function changeContent(key, value) {
-  var element = document.getElementById(key);
-  if (element) {
-    if (element.tagName === "INPUT") {
-      element.placeholder = value;
-      if (element.type === "submit") {
-        element.value = value;
-      }
-    } else {
-      element.textContent = value;
-    }
-    console.log(key + ' updated');
-  }
-}
 */
 
-/*=========================================================================*/
-/*                            local storage                              */
-/*=========================================================================*/
-
-// Set language preference
-function setLanguagePreference(language) {
-  localStorage.setItem('language', language);
-}
-
-// Retrieve the language preference
-function getLanguagePreference() {
-  return localStorage.getItem('language') || '';
-}

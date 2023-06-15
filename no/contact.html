@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no" data-theme="light">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Portefølje</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <script> //sjekk
+        let localS = localStorage.getItem('theme');
+        let themeToSet = localS;
+
+        if (!localS) {
+            themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        document.documentElement.setAttribute('data-theme', themeToSet);
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <nav id="langNav">
+                <ul>
+                    <li><a class="language-link" data-language="en" href="/en/index.html"><img id="enImg"
+                                class="language-image" src="/assets/eng-flag.png" alt="engelsk flagg"></a></li>
+                    <li><a class="language-link" data-language="fr" href="/fr/index.html"> <img id="frImg"
+                                class="language-image" src="/assets/french-flag.png" alt="fransk flagg"></a></li>
+                    <li><a class="language-link" data-language="no" href="/no/index.html"><img id="noImg"
+                                class="language-image" src="/assets/nor-flag.png" alt="norsk flagg"></a></li>
+                </ul>
+            </nav>
+            <a href="index.html" id="logoName">Louis Sundrønning</a>
+            <nav class="pageNav"> <!--- Side navigasjon -->
+                <ul>
+                    <li><a href="work.html" id="navWork">Arbeid</a></li>
+                    <li><a href="about.html" id="navAbout">Om</a></li>
+                    <li><a href="contact.html" id="navContact">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div id="switcher">  <!--- Bytt lys og mørk modus -->
+                <button id="switchButton">
+                    <img src="" alt="bilde av sol eller måne">
+                </button>
+                <audio id="lightSound1" src="/assets/light-sound-1.mp3"></audio>
+                <audio id="lightSound2" src="/assets/light-sound-2.mp3"></audio>
+                <audio id="pressSound" src="/assets/press-down.mp3"></audio>
+                <audio id="releaseSound" src="/assets/press-release.mp3"></audio>
+            </div>
+        </div>
+        <!--  LEGG TIL HEADER-INNHOLD HER  -->
+
+        KONTAKT HEADER INNHOLD som inneholder h1
+
+
+    </header>
+
+    <main>
+        <!--  LEGG TIL INNHOLD HER  -->
+
+        KONTAKT INNHOLD
+
+
+
+
+        <!--INGEN ENDRINGER UNDER HER-->
+        <div class="contactSection">
+            <div id="leftFoot">
+                <div id="contactFormDiv">
+                    <p id="contact1">Kom i</p>
+                    <p id="contact2">Kontakt.</p>
+                    <form>
+                        <label id="nameLabel">Navn</label>
+                        <input type="text" id="nameInput" name="name" placeholder="Hva skal jeg kalle deg?">
+                        <label id="mailLabel">E-post</label>
+                        <input type="email" id="mailInput" name="mail" placeholder="Hvordan kan jeg nå deg?">
+                        <label id="messageLabel">Melding</label>
+                        <input type="text" id="messageInput" name="message" placeholder="Hva vil du si?">
+                        <input type="submit" value="Send" id="submit">
+                    </form>
+                </div>
+            </div>
+            <div id="rightFoot">
+                <img id="contactImage" src="/assets/temp.png" alt="midlertidig">
+                <img id="rackImage" src="/assets/plant-rack.png" alt="midlertidig">
+            </div>
+        </div>
+    </main>
+    <footer>- Opphavsrett og lenker -</footer>
+    <!--  IKKE RØR  -->
+    <script src="/js/pleaseRun.js"></script>
+</body>
+
+</html>

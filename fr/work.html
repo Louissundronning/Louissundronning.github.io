@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <script> //vérifier
+        let localS = localStorage.getItem('theme');
+        let themeToSet = localS;
+
+        if (!localS) {
+            themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        document.documentElement.setAttribute('data-theme', themeToSet);
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <nav id="langNav">
+                <ul>
+                    <li><a class="language-link" data-language="en" href="../en/index.html"><img id="enImg"
+                                class="language-image" src="../assets/eng-flag.png" alt="drapeau anglais"></a></li>
+                    <li><a class="language-link" data-language="fr" href="../fr/index.html"> <img id="frImg"
+                                class="language-image active" src="../assets/french-flag.png" alt="drapeau français"></a></li>
+                    <li><a class="language-link" data-language="no" href="../no/index.html"><img id="noImg"
+                                class="language-image" src="../assets/nor-flag.png" alt="drapeau norvégien"></a></li>
+                </ul>
+            </nav>
+            <a href="index.html" id="logoName">Louis Sundrønning</a>
+            <nav class="pageNav"> <!--- Navigation des pages -->
+                <ul>
+                    <li><a href="work.html" id="navWork">Travaux</a></li>
+                    <li><a href="about.html" id="navAbout">À propos</a></li>
+                    <li><a href="contact.html" id="navContact">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="switcher">  <!--- Basculer entre le mode clair et sombre -->
+                <button id="switchButton">
+                    <img src="" alt="image de soleil ou de lune">
+                </button>
+                <audio id="lightSound1" src="../assets/light-sound-1.mp3"></audio>
+                <audio id="lightSound2" src="../assets/light-sound-2.mp3"></audio>
+                <audio id="pressSound" src="../assets/press-down.mp3"></audio>
+                <audio id="releaseSound" src="../assets/press-release.mp3"></audio>
+            </div>
+        </div>
+
+        <!--  ADD HEADER CONT. HERE  -->
+
+        TRAVAIL HEADER CONT. avec h1
+        
+
+
+    </header>
+
+    <main>
+        <!--  ADD CONTENT HERE  -->
+        TRAVAIL PRINCIPAL
+
+
+
+
+        <!--AUCUNE MODIFICATION CI-DESSOUS-->
+        <div class="contactSection">
+            <div id="leftFoot">
+                <div id="contactFormDiv">
+                    <p id="contact1">Contactez-moi</p>
+                    <p id="contact2">Contact.</p>
+                    <form>
+                        <label id="nameLabel">Nom</label>
+                        <input type="text" id="nameInput" name="name" placeholder="Comment dois-je vous appeler ?">
+                        <label id="mailLabel">E-mail</label>
+                        <input type="email" id="mailInput" name="mail" placeholder="Comment puis-je vous joindre ?">
+                        <label id="messageLabel">Message</label>
+                        <input type="text" id="messageInput" name="message" placeholder="Que voulez-vous dire ?">
+                        <input type="submit" value="Envoyer" id="submit">
+                    </form>
+                </div>
+            </div>
+            <div id="rightFoot">
+                <img id="contactImage" src="/assets/temp.png" alt="temp">
+                <img id="rackImage" src="/assets/plant-rack.png" alt="temp">
+            </div>
+        </div>
+    </main>
+    <footer>- Droits d'auteur et liens -</footer>
+    <!--  NONO STAY AWAY  -->
+    <script src="/js/pleaseRun.js"></script>
+</body>
+
+</html>
