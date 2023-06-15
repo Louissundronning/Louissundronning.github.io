@@ -95,30 +95,3 @@ function getCurrentLanguage() {
   console.log(currentLanguage + ' language has been identified');
   return currentLanguage;
 }
-
-
-
-
-/*
-
-// Set the initial language based on the stored value or default to a fallback language
-if (selectedLanguage) {
-  setLanguage(selectedLanguage);
-  editActiveImage(selectedLanguage);
-} else {
-  // Set a default language if no language is stored
-  selectedLanguage = 'en'; // Set your default language here
-  setLanguage(selectedLanguage);
-}
-
-languageButtons.forEach(function (button) {
-  button.addEventListener('click', function () {
-    selectedLanguage = this.dataset.language;
-    editActiveImage(selectedLanguage);
-    setLanguage(selectedLanguage);
-    localStorage.setItem('selectedLanguage', selectedLanguage);
-  });
-});
-
-*/
-
