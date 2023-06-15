@@ -1,0 +1,54 @@
+/*=========================================================================*/
+/*                            Light switcher 1                             */
+#switcher1 img, #switcher1 button {
+    margin-left:10px;
+}
+#switcher1 img {
+    height:25px;
+    width:auto;
+}
+#switcher1 button {
+    width:80px;
+    height:40px;
+    padding:4px;
+    flex-direction: row;
+    border-radius: 20px;
+    cursor:pointer;
+    background: var(--light-switch-bg);
+}
+#switcher1 button div{
+    background:var(--light-switcher);
+    width:45%;
+    height:100%;
+    border-radius:50%;
+}
+/*=========================================================================*/
+/*                            Light switcher 2                             */
+#switcher2{
+    height:40px;
+    width:90px;
+    background-color:var(--light-switch-bg);
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    padding:3px;
+    position:relative;
+}
+#switcher2 img{
+    height:100%;
+    width:auto;
+    z-index:1;
+    padding: 5px;
+}
+#switcher2::before {
+    content:"";
+    position:absolute;
+    width:35px;
+    height:35px;
+    background: var(--light-switcher);
+    border-radius: 50%;
+    z-index:0;
+    left:3px;
+}

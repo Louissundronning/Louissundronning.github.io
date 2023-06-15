@@ -1,0 +1,19 @@
+{
+    "navWork": "Arbeid",
+    "navAbout": "Om",
+    "navContact":"Kontakt",
+
+    "introTitle": "En kunstner med en lidenskap for bevegelse og historiefortelling.",
+    "introDetails1": "Jeg er en digital kunstner, designer, 3D generalist og animatør.",
+    "introDetails2": "Forbereder meg for tiden for å åpne virksomheten",
+
+    "contact1":"Kom i",
+    "contact2":"Kontact.",
+    "nameLabel":"Navn",
+    "nameInput":"Hva skal jeg kalle deg?",
+    "mailLabel":"Email",
+    "mailInput":"Hvordan får jeg tak i deg?",
+    "messageLabel":"Melding",
+    "messageInput":"Hva vil du si?",
+    "submit":"Send"
+}

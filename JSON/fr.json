@@ -1,0 +1,19 @@
+{
+    "navWork": "Travaux",
+    "navAbout": "À propos",
+    "navContact":"Contact",
+
+    "introTitle": "Un artiste avec une passion pour le mouvement et la narration.",
+    "introDetails1": "Je suit un artiste digital, designer, generaliste 3D et animateur.",
+    "introDetails2": "Je me prépare actuellement à ouvrir mes portes.",
+
+    "contact1":"Entrer en",
+    "contact2":"Contact.",
+    "nameLabel":"Nom",
+    "nameInput":"Comment vous appellez vous?",
+    "mailLabel":"Email",
+    "mailInput":"Quel est votre adresse mail?",
+    "messageLabel":"Message",
+    "messageInput":"Que voulez vous dire?",
+    "submit":"Envoyer"
+}
