@@ -1,31 +1,84 @@
-<!DOCTYPE html>
-<html lang="eng" data-theme="dark">
-    <head>
-        <title>Canceled Features</title>
-        <link rel="stylesheet" href="/style/main.css">
-        <link rel="stylesheet" href="/style/canceled.css">
-    </head>
-    <body>
-        <header>
-            <!---Toggle light and dark mode-->
-            <div id="switcher1">
-                <img src="/assets/moon.png">
-                <button><div></div></button>
-                <img src="/assets/sun.png">
-            </div>
-            <div id="switcher2">
-                <img src="/assets/moon-dark.png">
-                <img src="/assets/sun-dark.png">
-            </div>
-        </header>
+<head>
+    <title>Canceled Features</title>
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/canceled.css">
+</head>
 
-        <main>
+<!---Toggle light and dark mode-->
+<div id="switcher1">
+    <img src="/assets/moon.png">
+    <button>
+        <div></div>
+    </button>
+    <img src="/assets/sun.png">
+</div>
+<div id="switcher2">
+    <img src="/assets/moon-dark.png">
+    <img src="/assets/sun-dark.png">
+</div>
 
-        </main>
+<!--FIGURE & FIGCAPTION-->
+<figure>
+    <img src=“a-man-coding.jpg” alt=“A man working on his computer”>
+    <figcaption> This is a picture of a man working on his computer</figcaption>
+</figure>
 
-        <footer>
+use <strong> bolden and mark as important </strong> and <em> to emphasize </em>
 
-        </footer>
-        <script src="/js/canceled.js"></script>
-    </body>
-</html>
+
+<!-- SEO & language -->
+
+Use separate URLs for different language versions: Instead of dynamically changing content on a single page, create separate URLs for each language version of your website. For example, example.com/en for English and example.com/fr for French.
+Implement hreflang tags: Include the appropriate hreflang tags in the <head> section of your HTML to indicate the language and regional targeting of each page. This helps search engines understand the language variations and serve the correct version to users based on their location and language preferences.
+Provide a language switcher: Include a language switcher on every page to allow users to easily switch between different language versions of your website. The language switcher can be in the form of a dropdown menu, flags, or text links.
+Ensure translated content is crawlable: Make sure that all language versions of your website are accessible to search engine crawlers. Avoid using JavaScript-based solutions that hide content or make it difficult for search engines to access.
+Translate metadata: Translate essential metadata such as page titles, meta descriptions, and alt tags for images to provide relevant information to search engines in each language.
+
+Conduct keyword research to understand relevant terms and phrases for your industry and incorporate them into your content.
+Optimize your page titles, meta descriptions, and headings with relevant keywords.
+Use descriptive URLs that include keywords related to your portfolio and the content on each page.
+Optimize image alt tags with relevant keywords and provide descriptive captions or text around your portfolio items.
+Ensure your website has a clear and crawlable site structure, including a sitemap and internal linking between relevant pages.
+Regularly update and expand your portfolio content to keep it fresh and engaging for both users and search engines.
+
+
+
+
+
+
+Determine the languages you want to support:
+Identify the languages you want to provide content in on your portfolio website. For example, English, Spanish, French, etc.
+
+Choose the language code format:
+Select a language code format for your subdirectories. The commonly used format is the ISO 639-1 language code, such as "/en" for English, "/es" for Spanish, "/fr" for French, and so on.
+Ensure the chosen language code format aligns with SEO best practices and is recognized by search engines.
+
+Set up subdirectories:
+Create a subdirectory for each language you're supporting at the root level of your website.
+For example, if your website's domain is "example.com," create subdirectories like "example.com/en" for English, "example.com/es" for Spanish, and so on.
+
+Duplicate and translate content:
+Duplicate your existing portfolio pages into their respective language subdirectories.
+Translate the content of each page into the corresponding language.
+Ensure the translated content accurately represents the original content and is optimized for SEO in the target language.
+
+Implement language switcher:
+Create a language switcher component or menu on your website to allow visitors to switch between different language versions.
+Include language-specific flags, country names, or language codes in the switcher for clarity.
+Link each language option to its corresponding subdirectory page (e.g., link the English option to "/en" and the Spanish option to "/es").
+
+Implement hreflang tags:
+Add hreflang tags to the head section of your HTML pages to indicate the language and regional targeting of each page.
+hreflang tags help search engines understand the language and regional relevance of your pages and ensure they're displayed in the appropriate search results.
+
+Configure language-specific SEO optimizations:
+Optimize each language version of your portfolio pages for relevant keywords and SEO best practices specific to that language and target audience.
+Update meta titles, descriptions, headings, image alt tags, and other SEO elements to reflect the language and targeted keywords of each page.
+
+Set up language-specific redirects (if necessary):
+Configure server redirects to ensure that users are automatically redirected to the appropriate language version based on their browser settings or location.
+This step may require additional server configuration, depending on your hosting environment.
+
+Test and monitor:
+Test the functionality of your language switcher and ensure that visitors are directed to the correct language version.
+Monitor your website's performance, search engine rankings, and user feedback to identify any issues or areas for improvement.

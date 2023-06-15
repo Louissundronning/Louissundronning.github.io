@@ -52,15 +52,14 @@
 }
 
 :root {
-    --default-border-radius: 10px;
-    --defaul-transition: opacity .3s ease-in-out, color .3s ease-in-out, border-color .3s ease-in-out, fill .3s ease-in-out, transform .3s ease-in-out, background-image .3s ease-in-out, background-color .3s ease-in-out;
+    --default-transition: none;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: var(--defaul-transition);
+    transition: var(--default-transition);
     font-family: Lexend, sans-serif;
 }
 p, h1, h2, h3, h4, h5, h6 {
@@ -69,12 +68,15 @@ p, h1, h2, h3, h4, h5, h6 {
 label {
     color: var(--background-main)
 }
-
 body {
     min-height: 100vh;
     color:var(--text-main);
     background-color: var(--background-main);
     /*background-image: linear-gradient(var(--background-main), var(--background-secondary));*/
+}
+button {
+    cursor:pointer;
+    border:none;
 }
 
 /*=========================================================================*/
@@ -97,50 +99,48 @@ body {
     background: #555;
   }
   
-  /* For Firefox 
-  scrollbar-width: thin;
-  scrollbar-color: transparent;
-  
-  /* For IE and Edge 
-  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge 
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1;
 
 
 /*=========================================================================*/
 /*                            HEADER CONTENT                               */
 /*=========================================================================*/
 
-header{
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+
+/*=========================================================================*/
+/*                                 MENU                                    */
+
+.menu{
     /*position:absolute;*/
     top: 0;
     left: 0;
-    width: 50%;
-    margin-left:25%;
+    width: 60%;
     padding: 20px 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-header #logoName{
+.menu #logoName{
     color:var(--text-main);
     text-decoration: none;
     font-size: 28px;
     font-weight:300;
     letter-spacing: 1px;;
 }
-header ul, header ul li, #switcher1, #switcher, #switcher button{
+.menu ul, .menu ul li, #switcher1, #switcher, #switcher button{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-header ul li{
+.menu li{
     list-style: none;
 }
-button {
-    cursor:pointer;
-    border:none;
-}
+
 
 /*=========================================================================*/
 /*                           Language buttons                              */
@@ -158,7 +158,7 @@ button {
 #langNav .active {
     opacity: 1;
 }
-header ul li button {
+.menu ul li button {
     height: 90%;
     width: 90%;
     border-radius: 50%;
@@ -166,29 +166,29 @@ header ul li button {
     border:none;
     background: var(--background-main);
 }
-header ul li button img {
+.menu ul li button img {
     width:100%;
     height:100%;
     opacity:0.4;
 }
-header ul li button:hover {
+.menu ul li button:hover {
     height: 100%;
     width: 100%;
 }
-header ul li button:hover img {
+.menu ul li button:hover img {
     opacity: 1;
 }
-header ul li button:active {
+.menu ul li button:active {
     height: 80%;
     width: 80%;
 }
-header ul li button:active img {
+.menu ul li button:active img {
     opacity:.75;
 }
 
 /*=========================================================================*/
 /*                             Menu buttons                                */
-header ul li a{
+.menu ul li a{
     color:var(--text-secondary);
     font-size:18px;
     font-weight:thin;
@@ -199,8 +199,8 @@ header ul li a{
     border-radius:20px;
 }
 
-header ul li a:hover, 
-header ul li a.active{
+.menu ul li a:hover, 
+.menu ul li a.active{
     color: var(--text-main);
     font-size: 20px;
     font-weight: 500;
@@ -251,8 +251,10 @@ header ul li a.active{
 /*=========================================================================*/
 main {
     display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width:100%;
 }
 /*=========================================================================*/
 /*                             Intro Section                               */
@@ -288,11 +290,12 @@ main {
 }
 
 /*=========================================================================*/
-/*                            FOOTER CONTENT                               */
+/*                            Contact section                               */
 /*=========================================================================*/
 
-footer {
+.contactSection {
     display:flex;
+    width:100%;
 }
 #leftFoot{
     width:50%;
@@ -303,7 +306,7 @@ footer {
     flex-direction: row-reverse;
     align-items: flex-end;
 }
-footer div p, footer label{
+.contactSection div p, .contactSection label{
     font-size: 24px;
     color: var(--form-text);
 }
@@ -323,11 +326,11 @@ footer div p, footer label{
     display:flex;
     flex-direction: column;
 }
-footer label {
+.contactSection label {
     margin-top:10px;
     font-weight:500;
 }
-footer input:not([type="submit"]){
+.contactSection input:not([type="submit"]){
     font-size: 20px;
     border: none;
     height: 50px;
@@ -337,7 +340,7 @@ footer input:not([type="submit"]){
     margin-top:10px;
     border-radius: 2px;
 }
-footer input:not(:placeholder-shown), footer input:focus{
+.contactSection input:not(:placeholder-shown), .contactSection input:focus{
     background-color: white;
     color: var(--background-main);
     outline:none;
