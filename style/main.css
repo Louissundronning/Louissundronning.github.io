@@ -4,7 +4,12 @@
 
     --background-main: #101010;
     --background-secondary: #202020;
+
+    --scrollbar-thumb: #404040;
+
     --form-input-bg: #c0c0c0;
+    --form-bg: var(--text-main);
+    --form-text: var(--background-main);
 
     --sun-switcher-bg: #ffd371;
     --light-switch-img: url("/assets/sun-color.png");
@@ -13,8 +18,14 @@
     --text-main: #202020;
     --text-secondary: #808080;
 
-    --background-main: #d0d0d0;
-    --background-secondary: #e0e0e0;
+    --background-main: #ddd;
+    --background-secondary: #eee;
+
+    --scrollbar-thumb: #BBB;
+
+    --form-input-bg: #ccc;
+    --form-bg: var(--background-secondary);
+    --form-text: var(--text-main);
 
     --sun-switcher-bg: #444cb4;
     --light-switch-img: url("/assets/moon-color.png");
@@ -52,6 +63,12 @@
     transition: var(--defaul-transition);
     font-family: Lexend, sans-serif;
 }
+p, h1, h2, h3, h4, h5, h6 {
+    color: var(--text-main)
+}
+label {
+    color: var(--background-main)
+}
 
 body {
     min-height: 100vh;
@@ -61,6 +78,36 @@ body {
 }
 
 /*=========================================================================*/
+/*                               Scrollbar                                 */
+::-webkit-scrollbar {
+    width:15px;
+  }
+::-webkit-scrollbar-track {
+    background: var(--background-secondary);
+  }
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+
+  } 
+  ::-webkit-scrollbar-thumb:horizontal {
+    transform: scaleX(0.1); /* Adjust the scale value to change the width */
+    transform-origin: center; /* Center the scaled thumb */
+  } 
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* For Firefox 
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+  
+  /* For IE and Edge 
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge 
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+
+
+/*=========================================================================*/
 /*                            HEADER CONTENT                               */
 /*=========================================================================*/
 
@@ -68,10 +115,11 @@ header{
     /*position:absolute;*/
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
+    margin-left:25%;
     padding: 20px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 header #logoName{
@@ -96,6 +144,12 @@ button {
 
 /*=========================================================================*/
 /*                           Language buttons                              */
+#navTemp {
+    position:fixed;
+    left:15px;
+    top:15px;
+    z-index: 10;
+}
 #langNav li {
     width:50px;
     height:50px;
@@ -154,6 +208,12 @@ header ul li a.active{
 
 /*=========================================================================*/
 /*                            Light switcher                               */
+#switcher {
+    position:fixed;
+    right: 15px;
+    z-index: 10;
+}
+
 #switcher{
     height:50px;
     width:50px;
@@ -194,6 +254,8 @@ main {
     align-items: center;
     justify-content: center;
 }
+/*=========================================================================*/
+/*                             Intro Section                               */
 #introDiv {
     display:flex;
     flex-direction: column;
@@ -231,7 +293,6 @@ main {
 
 footer {
     display:flex;
-    color: var(--background-main);
 }
 #leftFoot{
     width:50%;
@@ -244,6 +305,7 @@ footer {
 }
 footer div p, footer label{
     font-size: 24px;
+    color: var(--form-text);
 }
 #contact2{
     padding-left:40px;
@@ -254,7 +316,7 @@ footer div p, footer label{
 #contactFormDiv {
     padding: 40px;
     border-radius: var(--default-border-radius);
-    background-color: var(--text-main);
+    background-color: var(--form-bg);
     width:500px;
 }
 #contactFormDiv form {
@@ -271,38 +333,44 @@ footer input:not([type="submit"]){
     height: 50px;
     background-color: var(--form-input-bg);
     color: var(--text-secondary);
-    padding:10px;
+    padding-left:15px;
     margin-top:10px;
-    display: inline;
-    vertical-align: top;
     border-radius: 2px;
 }
 footer input:not(:placeholder-shown), footer input:focus{
     background-color: white;
     color: var(--background-main);
+    outline:none;
+    box-shadow: inset 0px 0px 5px var(--text-secondary);
 }
 #messageInput {
     height: 10em;
 }
+/* submit button ---------------------------------------------------------- */
 #submit {
     font-size: 20px;
     border: none;
     background-color: var(--text-secondary);
-    color: var(--text-main);
+    color: var(--form-text);
     border-radius:20px;
     width:50%;
     height:40px;
     margin-top: 40px;
     cursor: pointer;
+    box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+    transition: .3s;
 }
 #submit:hover {
-    background-color: var(--background-main);
-    color: var(--text-main);
+    background-color: var(--form-text);
+    color: var(--form-bg);
 }
 #submit:active {
-    background-color: var(--form-input-bg);
-    color: var(--background-main);
+    background-color: white;
+    color: var(--form-text);
+    box-shadow: inset 0px 0px 5px var(--text-secondary);
 }
+/*=========================================================================*/
+/*                               Right foot                                */
 #rightFoot {
     position: relative;
     width:50%;
@@ -312,6 +380,8 @@ footer input:not(:placeholder-shown), footer input:focus{
     right:0;
     bottom:0;
     width:130%;
+    max-height:90vh;
+    pointer-events: none;
 }
 #rackImage {
     position:absolute;
@@ -319,4 +389,6 @@ footer input:not(:placeholder-shown), footer input:focus{
     bottom:0;
     width:45%;
     z-index: -1;
+    max-height: 100vh;
+    pointer-events: none;
 }
