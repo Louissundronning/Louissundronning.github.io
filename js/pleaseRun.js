@@ -39,17 +39,21 @@ document.querySelector('#switcher').addEventListener('mousedown', playAudio)
 document.querySelector('#switcher').addEventListener('click', switchTheme)
 
 /*=========================================================================*/
-/*                            page switch                              */
+/*                         page & language switch                          */
 /*=========================================================================*/
 
 const currentPageName = getCurrentPageName();
+let currentLanguage = getCurrentLanguage();
 setActiveLink(currentPageName);
+setActiveLanguage(currentLanguage);
+updateLanguageLinks(currentPageName);
+
 console.log(currentPageName);
 
 function setActiveLink(pageName) {
   const navLinks = document.querySelectorAll('.pageNav a');
   navLinks.forEach(link => link.classList.remove('active'));
-  console.log('links removed?')
+  console.log('Links removed');
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (href === pageName) {
@@ -58,22 +62,6 @@ function setActiveLink(pageName) {
     }
   });
 }
-
-function getCurrentPageName() {
-  const pathname = window.location.pathname;
-  const pathParts = pathname.split('/');
-  let currentPageName = pathParts[pathParts.length - 1];
-  console.log(currentPageName + ' has been identified');
-  return currentPageName;
-}
-
-/*=========================================================================*/
-/*                            language switch                              */
-/*=========================================================================*/
-
-const currentLanguage = getCurrentLanguage();
-setActiveLanguage(currentLanguage);
-console.log('currentLanguage')
 
 function setActiveLanguage(language) {
   const langNavImages = document.querySelectorAll('.language-image');
@@ -88,6 +76,24 @@ function setActiveLanguage(language) {
   });
 }
 
+function updateLanguageLinks(currentPage) {
+  const langNavLinks = document.querySelectorAll('.language-link');
+  langNavLinks.forEach(link => {
+    const language = link.getAttribute('data-language');
+    const href = `/${language}/${currentPage}`;
+    link.setAttribute('href', href);
+    console.log(`Updated href for ${language}: ${href}`);
+  });
+}
+
+function getCurrentPageName() {
+  const pathname = window.location.pathname;
+  const pathParts = pathname.split('/');
+  let currentPageName = pathParts[pathParts.length - 1];
+  console.log(currentPageName + ' has been identified');
+  return currentPageName;
+}
+
 function getCurrentLanguage() {
   const pathname = window.location.pathname;
   const pathParts = pathname.split('/');
@@ -95,3 +101,23 @@ function getCurrentLanguage() {
   console.log(currentLanguage + ' language has been identified');
   return currentLanguage;
 }
+
+function saveLanguageSelection(language) {
+  localStorage.setItem('selectedLanguage', language);
+  console.log('Selected language (' + language + ') saved to local storage');
+}
+
+function getSavedLanguageSelection() {
+  const selectedLanguage = localStorage.getItem('selectedLanguage');
+  console.log('Retrieved selected language (' + selectedLanguage + ') from local storage');
+  return selectedLanguage;
+}
+
+// Retrieve the saved language from local storage
+const savedLanguage = getSavedLanguageSelection();
+
+// If a language is saved, use it; otherwise, use the current language
+currentLanguage = savedLanguage ? savedLanguage : currentLanguage;
+
+// Save the current language to local storage
+saveLanguageSelection(currentLanguage);
